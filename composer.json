@@ -1,0 +1,19 @@
+{
+    "name": "evaldas/cms-project-php",
+    "description": "CMS Project with PHP",
+    "type": "project",
+    "authors": [
+        {
+            "name": "EvaldasP",
+            "email": "72792658+EvaldasP@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "doctrine/orm": "^2.8"
+    },
+
+    "autoload": {
+        "files": ["src/Article.php"]
+    }
+
+}
