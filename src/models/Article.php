@@ -48,4 +48,15 @@ class Article
     {
         return $this->arcticle_content;
     }
+
+
+    public function setContent($arcticle_content)
+    {
+        $this->arcticle_content = $arcticle_content;
+    }
+
+    public function setTitle($arcticle_title)
+    {
+        $this->arcticle_title = $arcticle_title;
+    }
 }

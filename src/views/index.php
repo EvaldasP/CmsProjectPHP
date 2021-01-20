@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="includes/Style/styles.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>CMS PROJECT</title>
 </head>
 
@@ -20,7 +21,7 @@
     </div>
 
 
-    <header>
+    <header id="headeris">
         <?php
         //article spaudinimas traukiant is duombazes
         include_once "bootstrap.php";
@@ -28,7 +29,7 @@
         foreach ($articles as $a) {
 
             print
-                '<a href="?p=' . $a->getId() . '"  ><h3>' . $a->getName() . '</h3></a>';
+                '<a href="?p=' . $a->getId() . '"  ><h4>' . $a->getName() . '</h4></a>';
         }
         ?>
     </header>

@@ -6,32 +6,42 @@ body {
   background-color: #f2f4f4;
 }
 
-header {
+#headeris {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-bottom: 30px;
   background-color: #17202a;
   padding: 20px 0px;
 }
 
-header h3 {
+#headeris h4 {
   margin-left: 20px;
   margin-right: 20px;
   color: white;
   text-decoration: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
-header a {
+#headeris a {
   text-decoration: none;
 }
 
+#headeris h4:hover {
+  color: #0ae0e0;
+}
+
 .articleContent {
-  height: 50vh;
-  font-size: 3rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0px;
+  margin-top: 40px;
 }
 
 .articleContent h3 {
   text-align: center;
+  margin-bottom: 40px;
 }
 
 .articleContent article {
@@ -42,6 +52,7 @@ header a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-top: 40px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -62,5 +73,45 @@ header a {
 .logo a {
   text-decoration: none;
   color: #7d3c98;
+}
+
+#login {
+  margin-top: 100px;
+}
+
+#login form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#login form input {
+  margin-bottom: 10px;
+}
+
+#login #loginButton {
+  border: none;
+  cursor: pointer;
+  border: solid 1px #2e86c1;
+  border-radius: 20px;
+}
+
+.adminEdit {
+  margin-top: 30px;
+}
+
+#updateForm input {
+  margin-bottom: 20px;
+}
+
+#updateForm input:last-child {
+  margin-top: 30px;
 }
 /*# sourceMappingURL=styles.css.map */
