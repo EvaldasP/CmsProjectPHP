@@ -44,47 +44,35 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
         <a href="./">
             <h4>Admin</h4>
         </a>
-        <a href="href=" ../" target="_blank"">
+        <a href=" ../" target="_blank">
             <h4>Check Website</h4>
         </a>
-        <a href=" ?action=logout">
-            <h4>LogOut</h4>
+        <a href="?action=logout">
+            <h4>Log Out</h4>
         </a>
     </header>
 
 
-    <h3>Add Page</h3>
+
 
 
 
     <div class="articleContent">
+        <h3 class="pageInf">Add Page</h3>
 
         <?php
         // artcile content spausdinimas
         include_once "../bootstrap.php";
 
-
-
-
-
-        print("<form id=addForm method=post>");
+        print("<form id=addForm  action=./  method=post>");
         print("<label for=usr>Title:</label>");
-        print("<input class=form-control id=usr type=text name=newTitle ></input>");
+        print("<input class=form-control required id=usr type=text name=newTitle ></input>");
         print("<label for=usr>Content:</label>");
-        print("<textarea class=form-control rows=5 id=comment name=newContent >");
+        print("<textarea  required class=form-control rows=5 id=comment name=newContent >");
         print("</textarea>");
-        print("<input class='btn btn-outline-primary' type=\"submit\" value=\"Add\">");
+        print("<input name=confirmAdd id=confirmAdd class='btn btn-outline-primary' type=\"submit\" value=\"Add\">");
         print("</form>");
 
-
-        if (isset($_POST['newContent']) and isset($_POST['newTitle'])) {
-            $article = new Article();
-            $article->setTitle($_POST['newTitle']);
-            $article->setContent($_POST['newContent']);
-            $entityManager->persist($article);
-            $entityManager->flush();
-            header("Location: ./ ");
-        }
         ?>
     </div>
 

@@ -29,7 +29,7 @@
         foreach ($articles as $a) {
 
             print
-                '<a href="?p=' . $a->getId() . '"  ><h4>' . $a->getName() . '</h4></a>';
+                '<a href="./?p=' . $a->getId() . '"  ><h4>' . $a->getName() . '</h4></a>';
         }
         ?>
     </header>
@@ -44,7 +44,7 @@
             $articleContent = $entityManager->find('Article', $_GET['p']);
             $articleName = $articleContent->getName();
 
-            print("<h3>$articleName</h3>");
+            print("<h3 class=pav>$articleName</h3>");
             print("<article>");
             print $articleContent->getContent();
             print("</article>");
@@ -52,7 +52,7 @@
             $articleContent = $entityManager->find('Article', 1);
             $articleName = $articleContent->getName();
 
-            print("<h3>$articleName</h3>");
+            print("<h3 class=pav>$articleName</h3>");
             print("<article>");
             print $articleContent->getContent();
             print("<article>");

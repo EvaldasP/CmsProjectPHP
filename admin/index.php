@@ -1,6 +1,8 @@
 <?php
 
 session_start();
+
+
 // Atsijungimo logika
 
 if (isset($_GET['action']) and $_GET['action'] == 'logout') {
@@ -34,6 +36,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
 
 <body>
 
+
     <div class="logo">
         <a href="./"><img src="../includes/Style/cms.svg" alt=""></a>
         <a href="./">
@@ -50,15 +53,47 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
             <h4>Check Website</h4>
         </a>
         <a href="?action=logout">
-            <h4>LogOut</h4>
+            <h4>Log Out</h4>
         </a>
     </header>
 
 
-    <h3>Manage Pages</h3>
+
 
 
     <div class="adminEdit">
+
+        <h3 class="pageInf">Manage Pages</h3>
+
+        <?php
+        include_once "../bootstrap.php";
+
+
+
+        if (isset($_POST["confirmAdd"])) {
+
+            $article = new Article();
+            $article->setTitle($_POST['newTitle']);
+            $article->setContent($_POST['newContent']);
+            $entityManager->persist($article);
+            $entityManager->flush();
+
+
+            echo '<div id="addSuccesfully">';
+            echo '<h5>Page  added succesfully !</h5>';
+            echo '</div>';
+            header("Refresh: 1; URL=./");
+        }
+
+
+
+
+
+        ?>
+
+
+
+
 
         <table class="table">
             <thead>
@@ -72,7 +107,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
                 include_once "../bootstrap.php";
                 $pages = $entityManager->getRepository('Article')->findAll();
                 foreach ($pages as $p) {
-
+                    $dataCount++;
                     print '<tr>';
                     print  '<td>' . $p->getName() . '</td>';
 
@@ -80,17 +115,19 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
                         print "<td><a href=\"update.php?id={$p->getId()}\">UPDATE</a></td>";
                     } else {
                         print   "<td><a href=\"update.php?id={$p->getId()}\">UPDATE</a>
-                             <a href=\"?delete={$p->getId()}\">DELETE</a></td>";
+                             <a class=deletebtn href=\"?delete={$p->getId()}\">DELETE</a></td>";
                     }
 
                     print '</tr>';
                 }
+
+
                 ?>
             </tbody>
         </table>
 
 
-        <a href="./addpage.php"><button type="button" class="btn btn-outline-primary">Create New Page</button></a>
+        <a id="addBtn" href="./addpage.php"><button type="button" class="btn btn-outline-primary">Create New Page</button></a>
 
     </div>
 
@@ -112,8 +149,6 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
     }
 
     ?>
-
-
 
 </body>
 

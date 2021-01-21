@@ -37,7 +37,7 @@
     <div id="login">
         <form action="" method="post">
             <img width="100px" src="../includes/Style/cms.svg" alt="">
-            <h1 style="color: #2e86c1;" class="Title">CMS ADMIN</h1>
+            <h1 style="color: #0089EF;" class="Title">CMS ADMIN</h1>
             <h2>Please Log In</h2>
             <input type="text" name="username" placeholder="username = admin" required autofocus>
             <input type="password" name="password" placeholder="password = 1234" required>

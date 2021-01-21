@@ -1,6 +1,9 @@
 <?php
 
 session_start();
+
+
+
 // Atsijungimo logika
 if (isset($_GET['action']) and $_GET['action'] == 'logout') {
     session_start();
@@ -48,18 +51,21 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
             <h4>Check Website</h4>
         </a>
         <a href="?action=logout">
-            <h4>LogOut</h4>
+            <h4>Log Out</h4>
         </a>
     </header>
 
 
-    <h3>Edit Page</h3>
+
 
 
 
     <div class="articleContent">
-
+        <h3 class="pageInf">Edit Page</h3>
         <?php
+
+
+
         // artcile content spausdinimas
         include_once "../bootstrap.php";
 
@@ -68,15 +74,17 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
         $articleName = $articleContent->getName();
 
 
-        print("<form id=updateForm method=post>");
+        print("<form  id=updateForm  method=post>");
         print("<label for=usr>Title:</label>");
-        print("<input class=form-control id=usr type=text name=title value=$articleName></input>");
+        print("<input class=form-control id=usr type=text required name=title value='$articleName'></input>");
         print("<label for=usr>Content:</label>");
-        print("<textarea class=form-control rows=5 id=comment name=content >");
+        print("<textarea required class=form-control rows=5 id=comment name=content >");
         print $articleContent->getContent();
         print("</textarea>");
         print("<input class='btn btn-outline-primary' type=\"submit\" value=\"Update\">");
         print("</form>");
+
+        $GLOBALS['a'] = "kazkas";
 
 
         if (isset($_POST['content']) and isset($_POST['title'])) {
@@ -84,10 +92,12 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
             $page->setContent($_POST['content']);
             $page->setTitle($_POST['title']);
             $entityManager->flush();
+
             header("Location: ./ ");
         }
         ?>
     </div>
+
 
 
 
