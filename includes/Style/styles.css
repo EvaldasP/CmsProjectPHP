@@ -165,7 +165,9 @@ body {
   color: #bf1004;
 }
 
-#addSuccesfully {
+#addSuccesfully,
+#delSuccesfully {
+  color: white;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -177,7 +179,12 @@ body {
   margin-bottom: 10px;
 }
 
-#addSuccesfully h5 {
+#addSuccesfully h5,
+#delSuccesfully h5 {
   margin: 0px;
+}
+
+#delSuccesfully {
+  background-color: #2e86c1;
 }
 /*# sourceMappingURL=styles.css.map */

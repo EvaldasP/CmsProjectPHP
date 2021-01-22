@@ -14,9 +14,6 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
 }
 ?>
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,7 +36,6 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
         </a>
     </div>
 
-
     <header id="headeris">
         <a href="./">
             <h4>Admin</h4>
@@ -52,35 +48,22 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
         </a>
     </header>
 
-
-
-
-
-
     <div class="articleContent">
         <h3 class="pageInf">Add Page</h3>
 
         <?php
         // artcile content spausdinimas
         include_once "../bootstrap.php";
-
         print("<form id=addForm  action=./  method=post>");
         print("<label for=usr>Title:</label>");
         print("<input class=form-control required id=usr type=text name=newTitle ></input>");
         print("<label for=usr>Content:</label>");
         print("<textarea  required class=form-control rows=5 id=comment name=newContent >");
         print("</textarea>");
-        print("<input name=confirmAdd id=confirmAdd class='btn btn-outline-primary' type=\"submit\" value=\"Add\">");
+        print("<input name=confirmAdd id=confirmAdd class='btn btn-outline-primary'  type=\"submit\" value=\"Add\">");
         print("</form>");
-
         ?>
     </div>
-
-
-
-
-
-
 
 </body>
 

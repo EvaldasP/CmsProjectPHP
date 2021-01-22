@@ -2,7 +2,6 @@
 
 session_start();
 
-
 // Atsijungimo logika
 
 if (isset($_GET['action']) and $_GET['action'] == 'logout') {
@@ -11,9 +10,6 @@ if (isset($_GET['action']) and $_GET['action'] == 'logout') {
     unset($_SESSION['password']);
     unset($_SESSION['logged_in']);
 }
-
-
-
 
 if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
     header("location: login.php");
@@ -66,32 +62,40 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
         <h3 class="pageInf">Manage Pages</h3>
 
         <?php
+
+
+
+
+        // Adding page
+
         include_once "../bootstrap.php";
 
-
-
         if (isset($_POST["confirmAdd"])) {
-
             $article = new Article();
             $article->setTitle($_POST['newTitle']);
             $article->setContent($_POST['newContent']);
             $entityManager->persist($article);
             $entityManager->flush();
-
-
             echo '<div id="addSuccesfully">';
             echo '<h5>Page  added succesfully !</h5>';
             echo '</div>';
             header("Refresh: 1; URL=./");
         }
+        // Deleting page
 
+        if (isset($_GET['delete'])) {
+            $page = $entityManager->find('Article', $_GET['delete']);
+            $entityManager->remove($page);
+            $entityManager->flush();
 
+            echo '<div id="delSuccesfully">';
+            echo '<h5>Page  deleted succesfully !</h5>';
+            echo '</div>';
 
-
+            header("Refresh: 1; URL=./");
+        }
 
         ?>
-
-
 
 
 
@@ -120,35 +124,16 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
 
                     print '</tr>';
                 }
-
-
                 ?>
+
+
+
             </tbody>
         </table>
 
-
         <a id="addBtn" href="./addpage.php"><button type="button" class="btn btn-outline-primary">Create New Page</button></a>
-
     </div>
 
-
-
-
-
-
-    <?php
-
-    // Deletinimas page
-
-    if (isset($_GET['delete'])) {
-        $page = $entityManager->find('Article', $_GET['delete']);
-        $entityManager->remove($page);
-        $entityManager->flush();
-
-        header("Location: " . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH));
-    }
-
-    ?>
 
 </body>
 
