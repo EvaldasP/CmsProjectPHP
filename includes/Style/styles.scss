@@ -130,7 +130,8 @@ body {
 }
 
 #addSuccesfully,
-#delSuccesfully {
+#delSuccesfully,
+#upSuccesfully {
   color: white;
   justify-content: center;
   background-color: #28a745;
@@ -144,4 +145,7 @@ body {
 
 #delSuccesfully {
   background-color: #2e86c1;
+}
+#upSuccesfully {
+  background-color: #fb7900;
 }

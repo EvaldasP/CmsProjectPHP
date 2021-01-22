@@ -74,7 +74,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
         $articleName = $articleContent->getName();
 
 
-        print("<form  id=updateForm  method=post>");
+        print("<form  id=updateForm action=./ method=post>");
         print("<label for=usr>Title:</label>");
         print("<input class=form-control id=usr type=text required name=title value='$articleName'></input>");
         print("<label for=usr>Content:</label>");
@@ -84,16 +84,12 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
         print("<input class='btn btn-outline-primary' type=\"submit\" value=\"Update\">");
         print("</form>");
 
-        $GLOBALS['a'] = "kazkas";
-
 
         if (isset($_POST['content']) and isset($_POST['title'])) {
             $page = $entityManager->find('Article', $_GET['id']);
             $page->setContent($_POST['content']);
             $page->setTitle($_POST['title']);
             $entityManager->flush();
-
-            header("Location: ./ ");
         }
         ?>
     </div>

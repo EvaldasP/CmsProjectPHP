@@ -1,16 +1,12 @@
 <?php
-
 session_start();
-
-// Atsijungimo logika
-
+// Disconect logic
 if (isset($_GET['action']) and $_GET['action'] == 'logout') {
     session_start();
     unset($_SESSION['username']);
     unset($_SESSION['password']);
     unset($_SESSION['logged_in']);
 }
-
 if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
     header("location: login.php");
     exit;
@@ -53,17 +49,10 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
         </a>
     </header>
 
-
-
-
-
     <div class="adminEdit">
-
         <h3 class="pageInf">Manage Pages</h3>
 
         <?php
-
-
 
 
         // Adding page
@@ -77,9 +66,9 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
             $entityManager->persist($article);
             $entityManager->flush();
             echo '<div id="addSuccesfully">';
-            echo '<h5>Page  added succesfully !</h5>';
+            echo '<h5>Page  Added Succesfully !</h5>';
             echo '</div>';
-            header("Refresh: 1; URL=./");
+            header("Refresh: 1.5; URL=./");
         }
         // Deleting page
 
@@ -89,11 +78,29 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
             $entityManager->flush();
 
             echo '<div id="delSuccesfully">';
-            echo '<h5>Page  deleted succesfully !</h5>';
+            echo '<h5>Page  Deleted Succesfully !</h5>';
             echo '</div>';
 
-            header("Refresh: 1; URL=./");
+            header("Refresh: 1.5; URL=./");
         }
+
+
+
+        // Updating page message
+
+
+        if (isset($_POST['content']) and isset($_POST['title'])) {
+
+            echo '<div id="upSuccesfully">';
+            echo '<h5>Page  Updated Succesfully !</h5>';
+            echo '</div>';
+
+            header("Refresh: 1.5; URL=./");
+        }
+
+
+
+
 
         ?>
 
@@ -108,6 +115,9 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
             </thead>
             <tbody>
                 <?php
+
+                // Printing existing pages
+
                 include_once "../bootstrap.php";
                 $pages = $entityManager->getRepository('Article')->findAll();
                 foreach ($pages as $p) {

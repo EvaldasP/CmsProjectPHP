@@ -166,7 +166,8 @@ body {
 }
 
 #addSuccesfully,
-#delSuccesfully {
+#delSuccesfully,
+#upSuccesfully {
   color: white;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -180,11 +181,16 @@ body {
 }
 
 #addSuccesfully h5,
-#delSuccesfully h5 {
+#delSuccesfully h5,
+#upSuccesfully h5 {
   margin: 0px;
 }
 
 #delSuccesfully {
   background-color: #2e86c1;
+}
+
+#upSuccesfully {
+  background-color: #fb7900;
 }
 /*# sourceMappingURL=styles.css.map */

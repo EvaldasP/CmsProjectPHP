@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-// Atsijungimo logika
+// Disconect Logic
 if (isset($_GET['action']) and $_GET['action'] == 'logout') {
     session_start();
     unset($_SESSION['username']);
