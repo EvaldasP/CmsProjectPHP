@@ -2,7 +2,7 @@
 
 session_start();
 
-// Atsijungimo logika
+// logout
 if (isset($_GET['action']) and $_GET['action'] == 'logout') {
     session_start();
     unset($_SESSION['username']);
@@ -64,7 +64,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
 
 
 
-        // artcile content spausdinimas
+    
         include_once "../bootstrap.php";
 
 

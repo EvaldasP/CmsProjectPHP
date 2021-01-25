@@ -1,17 +1,21 @@
 <?php
 $request = $_SERVER['REQUEST_URI'];
-$rootURL = '/CmsProjectPHP';
+
+
+$rootPath = '/CmsProjectPHP/';
+
+
 switch ($request) {
-    case '/CmsProjectPHP/':
+    case $rootPath:
         require __DIR__ . '/src/views/index.php';
         break;
 
 
-    case $rootURL . '/?p=' . $_GET['p']:
+    case $rootPath . '?p=' . $_GET['p']:
         require __DIR__ . '/src/views/index.php';
         break;
 
-    case $rootURL . '/home':
+    case $rootPath . 'home':
         require __DIR__ . '/src/views/index.php';
         break;
 

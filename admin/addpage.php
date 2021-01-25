@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-// Disconect Logic
+// logout
 if (isset($_GET['action']) and $_GET['action'] == 'logout') {
     session_start();
     unset($_SESSION['username']);
@@ -52,7 +52,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
         <h3 class="pageInf">Add Page</h3>
 
         <?php
-        // artcile content spausdinimas
+        // page add form
         include_once "../bootstrap.php";
         print("<form id=addForm  action=./  method=post>");
         print("<label for=usr>Title:</label>");
