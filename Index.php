@@ -1,6 +1,7 @@
 <?php
 $request = $_SERVER['REQUEST_URI'];
 
+// Reikia pasikoreguoti pagal tai kokiame folderyje patalpintas project'as
 
 $rootPath = '/CmsProjectPHP/';
 
