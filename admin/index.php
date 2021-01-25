@@ -1,6 +1,6 @@
 <?php
 session_start();
-// Disconect logic
+// logout
 if (isset($_GET['action']) and $_GET['action'] == 'logout') {
     session_start();
     unset($_SESSION['username']);
@@ -80,27 +80,8 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
             echo '<div id="delSuccesfully">';
             echo '<h5>Page  Deleted Succesfully !</h5>';
             echo '</div>';
-
             header("Refresh: 1.5; URL=./");
         }
-
-
-
-        // Updating page message
-
-
-        if (isset($_POST['content']) and isset($_POST['title'])) {
-
-            echo '<div id="upSuccesfully">';
-            echo '<h5>Page  Updated Succesfully !</h5>';
-            echo '</div>';
-
-            header("Refresh: 1.5; URL=./");
-        }
-
-
-
-
 
         ?>
 
