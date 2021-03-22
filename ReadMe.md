@@ -1,6 +1,6 @@
 ## CMS Manager PHP
 
-<img src="./includes/style/example.png"></img>
+<img src="includes/style/example.png"></img>
 
 ## Features
 
