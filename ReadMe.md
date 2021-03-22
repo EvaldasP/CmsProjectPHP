@@ -1,5 +1,7 @@
 ## CMS Manager PHP
 
+<img src="./includes/style/example.png"></img>
+
 ## Features
 
 Navigation menu for pages
