@@ -1,6 +1,6 @@
 ## CMS Manager PHP
 
-<img src="includes/style/example.png"></img>
+<img src="https://github.com/EvaldasP/CmsProjectPHP/blob/master/includes/Style/example.png"></img>
 
 ## Features
 
